@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="GetIpFunction()" style="background-color: blueviolet;color: bisque; border-radius: 22px; font-size: 25px;">Get ip</button>
+
+    <script>
+
+        function GetIpFunction()
+        {
+            fetch("https://api.ipify.org/")
+                .then(function (response) {return response.text();})
+                .then(function (ip) {console.log(ip);}) // we can remove this line if you want the response but if u want the result we'll add it, just incase you know :)
+                .catch(function(error){return console.log(error)});
+        }
+
+    </script>
+</body>
+</html>
