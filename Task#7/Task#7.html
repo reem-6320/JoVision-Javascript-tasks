@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+        setInterval(displayTime, 1000);
+
+        function addZero(i) 
+        {
+            if (i < 10) {i = "0" + i}
+            return i;
+        }
+        //////////////////////////////////////////////////////////////////////////
+        function displayTime() 
+        {
+            const d = new Date();
+            let Hour = addZero(d.getHours());
+            let Min = addZero(d.getMinutes());
+            let Sec = addZero(d.getSeconds());
+            document.getElementById("demo").innerHTML = Hour + ":" + Min + ":" + Sec + "<br>";
+        }
+    </script>
+</body>
+</html>
