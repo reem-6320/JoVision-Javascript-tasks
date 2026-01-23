@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="GetIP" onclick="GitUpFunction()" style="background-color: rgb(29, 11, 46); color: rgb(194, 214, 193); border-radius: 22px; font-size: 25px;"> Get ip </button>
+
+    <script>
+        function GitUpFunction() 
+        {
+            fetch("https://api.ipify.org/")
+                .then(function (response) {return response.text();})
+                .then(function (ip) {document.getElementById("GetIP").textContent = ip;})
+                .catch(function (error) {document.getElementById("GetIP").textContent = "Error";});
+        }
+    </script>
+</body>
+</html>
