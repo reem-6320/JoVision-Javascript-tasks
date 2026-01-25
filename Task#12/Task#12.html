@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name and Age</title>
+</head>
+<body>
+    
+    <form>
+        <div>
+            <Label for="YName">Your Name:</Label>
+            <input type="text" id="YName" placeholder="eg. Reem">
+        </div>
+
+        <br>
+        <br>
+
+        <div>
+            <Label for="YAge">Your Age:</Label>
+            <input type="number" id="YAge" placeholder="eg. 23">
+        </div>
+
+        <br>
+
+        <div>
+            <input type="reset">
+        </div>
+
+        <br>
+
+        <div>
+            <input onclick="CreatObject()" type="submit">
+        </div>
+
+    </form>
+
+    <script>
+        function CreatObject()
+        {
+            const person = 
+            {
+                Name : document.getElementById("YName").value,
+                Age : document.getElementById("YAge").value,
+                TimeStamp : new Date()
+            };
+            
+             alert
+            (
+                "Your name is: " + person.Name + "\n" +
+                "Your age is: " + person.Age + "\n" +
+                "Submitted at: " + person.TimeStamp
+            );
+        }
+    </script>
+</body>
+</html>
