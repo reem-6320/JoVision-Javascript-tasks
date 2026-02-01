@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name and Age</title>
+</head>
+<body>
+    
+    <form id = "myForm">
+        <div>
+            <Label for="YName">Your Name:</Label>
+            <input type="text" id="YName" placeholder="Name">
+        </div>
+
+        <br>
+        <br>
+
+        <div>
+            <Label for="YAge">Your Age:</Label>
+            <input type="number" id="YAge" placeholder="eg. 23">
+        </div>
+
+        <br>
+
+        <div>
+            <input type="reset">
+        </div>
+
+        <br>
+
+        <div>
+            <input onclick="CreatObject()" type="submit" value="submit">
+        </div>
+
+    </form>
+
+    <script>
+        function CreatObject(event)
+        {
+            event = event || window.event;
+            if (event.preventDefault) {
+                event.preventDefault(); 
+            } else {
+                event.returnValue = false; 
+            }
+
+            var nameValue = document.getElementById("YName").value;
+
+            var url = "https://api.agify.io?name=" + encodeURIComponent(nameValue);
+
+            fetch(url)
+                .then(function(response) {
+                    return response.json(); 
+                })
+                .then(function(data) {
+                    var person = {
+                        Name: data.name,  
+                        Age: data.age     
+                    };
+
+                    alert(
+                        "Your name is: " + person.Name + "\n" +
+                        "Your age is: " + person.Age
+                    );
+                })
+                .catch(function(error) {
+                    console.error("Error:", error);
+                    alert("Could not get age from API");
+                });
+        }
+
+         
+    </script>
+</body>
+</html>
